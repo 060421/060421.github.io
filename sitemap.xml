@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/baidu_verify_codeva-1Hq8RyLKyF.html</loc>
-    
-    <lastmod>2023-06-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/index.html</loc>
     
     <lastmod>2023-06-21</lastmod>
@@ -176,13 +167,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
-    <lastmod>2023-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/Welcome/</loc>
     <lastmod>2023-06-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -190,7 +174,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://example.com/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
     <lastmod>2023-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -204,7 +188,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E5%AE%9D%E8%97%8F%E7%BD%91%E7%AB%99/</loc>
+    <loc>http://example.com/tags/Nodejs%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -218,7 +209,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/Nodejs%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://example.com/tags/%E5%AE%9D%E8%97%8F%E7%BD%91%E7%AB%99/</loc>
     <lastmod>2023-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
