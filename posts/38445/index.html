@@ -279,6 +279,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -1240,6 +1247,17 @@
 <h5 id="server"><a href="#server" class="headerlink" title="server"></a>server</h5><p>&#x2F;server.js</p>
 <table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入相关模块</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> readStaticFile = <span class="built_in">require</span>(<span class="string">'./modules/readStaticFile'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 搭建 HTTP 服务器</span></span><br><span class="line"><span class="keyword">var</span> server = http.<span class="title function_">createServer</span>(<span class="keyword">function</span>(<span class="params">req, res</span>) {</span><br><span class="line">  <span class="keyword">var</span> urlObj = url.<span class="title function_">parse</span>(req.<span class="property">url</span>);</span><br><span class="line">  <span class="keyword">var</span> urlPathname = urlObj.<span class="property">pathname</span>;</span><br><span class="line">  <span class="keyword">var</span> filePathname = path.<span class="title function_">join</span>(__dirname, <span class="string">"/public"</span>, urlPathname);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 读取静态文件</span></span><br><span class="line">  <span class="title function_">readStaticFile</span>(res, filePathname);</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 3000 端口监听请求</span></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="keyword">function</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"服务器运行中."</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"正在监听 3000 端口:"</span>)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table>
 
+      <div>
+  
+    <div>
+  
+    <div style="text-align:center;color: #A4A4A4;font-size:16px;">---------- 结束咯~~ 撒花ฅ&gt;ω&lt;*ฅ花撒 ----------</div>
+  
+</div>
+
+  
+</div>
+
     </div>
 
     
@@ -1307,19 +1325,41 @@
   </span>
   <span class="author" itemprop="copyrightHolder">壮壮姐姐~</span>
 </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/01/2020 10:00:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+    }
+setInterval("createtime()",250);
+</script>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
     </span>
-    <span title="站点总字数">51k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
     </span>
-    <span title="站点阅读时长">3:06</span>
-  </span>
 </div>
 
     </div>
@@ -1347,6 +1387,7 @@
 
 
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
