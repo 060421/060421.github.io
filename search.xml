@@ -548,6 +548,478 @@
 <li><p>CSS3 新增盒模型：box-sizing</p>
 </li>
 </ul>
+<h3 id="清除浮动有哪些方案"><a href="#清除浮动有哪些方案" class="headerlink" title="清除浮动有哪些方案"></a>清除浮动有哪些方案</h3><blockquote>
+<p>清除浮动主要是为了解决父元素因为子元素浮动引起高度塌陷的问题。<br>本质上清除浮动的方式有两种，一种是利用 clear 属性，一种是利用 BFC。<br>clear 属性清除浮动又包括空标签法和伪元素法两种，代码如下：</p>
+</blockquote>
+<ul>
+<li>使用空标签清除浮动在浮动元素的末尾添加一个空标签，并设置 <code>clear:both</code> 属性，即可清除浮动。例如：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-parent&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 前两个盒子给上浮动 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-left&quot;</span>&gt;</span>左浮动<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-right&quot;</span>&gt;</span>右浮动<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 空盒子，css中给上clear:both属性 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clearfix&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 <code>:after</code> 伪元素清除浮动</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-parent&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 前两个盒子给上浮动 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-left&quot;</span>&gt;</span>左浮动<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-right&quot;</span>&gt;</span>右浮动<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.float-parent</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>BFC 清除浮动的方式有多种，常用的 <code>overflow</code> 为例：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-parent&quot;</span> <span class="attr">style</span>=<span class="string">&quot;overflow: hidden;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-right&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="伪类和伪元素的区别"><a href="#伪类和伪元素的区别" class="headerlink" title="伪类和伪元素的区别"></a>伪类和伪元素的区别</h3><blockquote>
+<p>在 CSS 中，伪类和伪元素都是用来指定元素的特殊状态和样式。它们的最大区别在于，伪类可以选择文档中元素的一些特殊状态，而伪元素可以在文档中创建一些虚拟的元素。</p>
+</blockquote>
+<p><strong>伪类：</strong></p>
+<ul>
+<li>:hover（鼠标悬停时）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>:active（元素被激活时）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: gray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>checked（选择状态时）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&quot;checkbox&quot;</span>]</span><span class="selector-pseudo">:checked</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>:nth-child（选择某个特定位置的子元素）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>伪元素：</strong></p>
+<ul>
+<li>::before（在元素内容前插入内容）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">h1</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;Chapter&quot;</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>::after（在元素内容后插入内容）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot; (The End)&quot;</span>;</span><br><span class="line">  <span class="attribute">font-style</span>: italic;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>::first-letter（选择元素内容的第一个字母）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::first-letter</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">color</span>: purple;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>::selection（选择用户选择的文本）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">::selection</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: yellow;</span><br><span class="line">  <span class="attribute">color</span>: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="DOCTYPE-有什么作用？"><a href="#DOCTYPE-有什么作用？" class="headerlink" title="DOCTYPE 有什么作用？"></a>DOCTYPE 有什么作用？</h3><ul>
+<li>DOCTYPE 是一种只是浏览器以何种 HTML 或 XHTML 规范来解析文档的声明。它能够告知浏览器网页文档使用的标记语言的类型以及版本，从而确保浏览器能够正确地展示网页内容。DOCTYPE 声明通常位于 HTML 文档的开头，是 HTML 文档的必须部分。</li>
+</ul>
+<h3 id="img-标签的-title-和-alt-属性有什么区别"><a href="#img-标签的-title-和-alt-属性有什么区别" class="headerlink" title="img 标签的 title 和 alt 属性有什么区别"></a>img 标签的 title 和 alt 属性有什么区别</h3><ul>
+<li><code>alt</code> 属性用于为图像提供替代文本，即使图像无法加载，也可以描述图像内容，提高网页的可访问性和可用性。</li>
+<li><code>title</code> 属性则提供有关图像的额外信息，可以通过鼠标悬停或使用辅助技术来查看。它通常用于提供更多的上下文或补充描述，但并不是必需的。</li>
+</ul>
+<h3 id="简述一下-src-与-href-的区别"><a href="#简述一下-src-与-href-的区别" class="headerlink" title="简述一下 src 与 href 的区别"></a>简述一下 src 与 href 的区别</h3><ul>
+<li><p>在 HTML 中，src 属性是用来指定外部资源的 URL，如图像、脚本或嵌入式对象的位置。例如，<img> 标签中的 src 属性指定图像的 URL。</p>
+</li>
+<li><p>而 href 属性则用来指定超文本链接的目标资源的位置，如超链接或 link 标记中的外部样式表。例如，<a> 标签中的 href 属性指定了链接目标的 URL。</p>
+</li>
+</ul>
+<h3 id="iframe-有哪些优缺点？"><a href="#iframe-有哪些优缺点？" class="headerlink" title="iframe 有哪些优缺点？"></a>iframe 有哪些优缺点？</h3><ul>
+<li>iframe（内联框架）是一种 HTML 元素，它允许在当前文档中嵌入另一个独立的 HTML 文档。iframe 有一些优点和缺点：</li>
+<li>优点：<ul>
+<li>内容隔离：iframe 可以将不同来源的内容隔离开来，使得它们在不同的上下文中运行。这有助于保护当前文档免受潜在的安全风险，并确保不同来源的内容不会互相干扰。</li>
+<li>异步加载：iframe 中的内容可以异步加载，这意味着页面主体内容可以在 iframe 加载完成之前呈现。这有助于提高页面加载速度。</li>
+<li>独立滚动：iframe 内的内容可以独立滚动，而不会影响主页面的滚动。这有助于在需要展示大量内容的情况下，提高用户体验。</li>
+<li>跨域资源访问：在一定程度上，iframe 可以用于访问跨域资源，例如嵌入来自其他域的网页或应用。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>性能影响：iframe 的使用可能会导致性能下降，因为它需要浏览器加载额外的文档资源。每个嵌入的 iframe 都需要额外的 HTTP 请求，这可能会延长页面加载时间。</li>
+<li>复杂性增加：iframe 的使用可能会使页面结构更加复杂，导致维护困难。而且，在 iframe 和主页面之间进行通信可能会涉及到跨域问题，这会增加开发难度。</li>
+<li>SEO 不友好：搜索引擎可能无法完全索引 iframe 中的内容，这会影响到网页的搜索引擎优化（SEO）。</li>
+<li>可访问性问题：iframe 在某些情况下可能导致可访问性问题。例如，屏幕阅读器可能无法正确解析 iframe 中的内容，导致部分用户无法访问这些内容。</li>
+</ul>
+</li>
+<li>综上所述，iframe 有一些优点，如内容隔离、异步加载和独立滚动等。然而，它也有一些缺点，如性能影响、复杂性增加、SEO 不友好和可访问性问题等。在使用 iframe 时，需要权衡这些优缺点，确保它适用于你的需求。</li>
+</ul>
+<h3 id="常用的-meta-标签有哪些？"><a href="#常用的-meta-标签有哪些？" class="headerlink" title="常用的 meta 标签有哪些？"></a>常用的 meta 标签有哪些？</h3><ul>
+<li><p>meta 标签提供了有关 HTML 文档的元数据，如描述、关键词、作者等。以下是一些常用的 meta 标签：</p>
+</li>
+<li><p><strong>字符集声明：</strong>声明文档使用的字符编码，通常为 UTF-8。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>视口设置：</strong>控制页面在移动设备上的显示方式，如缩放级别和页面宽度。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>页面描述：</strong>提供页面的简短描述，有助于搜索引擎了解页面内容。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;A brief description of the page.&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>关键词：</strong>设置页面关键词，有助于搜索引擎优化（SEO）。但请注意，大多数现代搜索引擎不再使用此标签。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;keyword1, keyword2, keyword3&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>作者：</strong>指定页面作者。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;author&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Author Name&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>禁止缓存：</strong>告诉浏览器不要缓存页面。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">http-equiv</span>=<span class="string">&quot;Cache-Control&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">&quot;no-cache, no-store, must-revalidate&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Pragma&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-cache&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Expires&quot;</span> <span class="attr">content</span>=<span class="string">&quot;0&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>自动刷新：</strong>设置页面在特定时间间隔后自动刷新。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;refresh&quot;</span> <span class="attr">content</span>=<span class="string">&quot;30&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>跳转到其他页面：</strong>在指定的时间间隔后，自动将用户重定向到其他页面。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;refresh&quot;</span> <span class="attr">content</span>=<span class="string">&quot;5; URL=https://example.com/new-page.html&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>兼容模式：</strong>指定浏览器（如 Internet Explorer）使用特定的渲染模式。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>搜索引擎索引控制：</strong>指示搜索引擎是否应索引页面和跟踪链接。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;index, follow&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这些常用的 meta 标签可以帮助你控制页面的显示、搜索引擎优化和其他功能。根据页面需求，可以根据需要添加更多的 meta 标签。</li>
+</ul>
+<h3 id="defer-和-async-的区别"><a href="#defer-和-async-的区别" class="headerlink" title="defer 和 async 的区别 ?"></a>defer 和 async 的区别 ?</h3><ul>
+<li>defer 和 async 都是用于脚本加载和执行的关键字，两者的主要区别如下：<ul>
+<li>defer 脚本会在 HTML 文档解析完成后执行，而 async 脚本会在下载完毕后立即执行。</li>
+<li>defer 脚本会按照它们在文档中的顺序执行，而 async 脚本是在下载完成后尽快执行，可能会打乱它们在文档中的顺序。</li>
+<li>defer 脚本会在 DOMContentLoaded 事件之后运行，而 async 脚本则不一定。</li>
+</ul>
+</li>
+<li>因此，如果需要按顺序执行脚本并且不想阻塞 DOM 的解析，可以使用 defer。如果脚本的执行不依赖于其他脚本或 DOM，可以使用 async 加快加载速度。</li>
+</ul>
+<h3 id="CSS-属性是否区分大小写？"><a href="#CSS-属性是否区分大小写？" class="headerlink" title="CSS 属性是否区分大小写？"></a>CSS 属性是否区分大小写？</h3><ul>
+<li>CSS 属性名和属性值在大多数情况下是不区分大小写的，但也有少数例外情况，如 font-variant 和 text-decoration 等属性与其值中的某些字母是区分大小写的。建议在编写 CSS 代码时还是严格遵守大小写以避免不必要的错误。</li>
+</ul>
+<h3 id="link-与-import-的区别"><a href="#link-与-import-的区别" class="headerlink" title="link 与@import 的区别"></a>link 与@import 的区别</h3><ul>
+<li><p>link 和 @import 都可以用来引入外部资源，如 CSS 文件，但是它们之间有以下区别：</p>
+<ul>
+<li>引入方式：link 是 HTML 标签，@import 是 CSS 提供的一种方式。</li>
+<li>加载顺序和性能：link 在页面载入时同时加载，@import 在页面载入完成后加载。</li>
+<li>定义方式：link 可以在文档头部定义，也可以在文档中任何地方定义，@import 只能在样式表中定义。</li>
+<li>加载方式：link 可以同时加载多个外部样式表，而@import 必须一条一条地执行。</li>
+<li>附加功能：link 标签支持添加一些额外属性，如 media、title 等，用于指定媒体类型或提供样式表的描述。@import 不支持这些附加功能。</li>
+<li>可控性：link 支持动态插入，而@import 不支持。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>面试那点事</category>
+      </categories>
+      <tags>
+        <tag>高频前端面试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端面试题-JavaScript</title>
+    <url>/posts/14/</url>
+    <content><![CDATA[<h3 id="js-有哪些内置对象？"><a href="#js-有哪些内置对象？" class="headerlink" title="js 有哪些内置对象？"></a>js 有哪些内置对象？</h3><p>JavaScript 有许多内置对象，包括但不限于：</p>
+<ul>
+<li>基本对象： Object、Boolean、Symbol、Number、String</li>
+<li>符合数据结构：Array、Set、Map、WeakSet、WeakMap</li>
+<li>日期和时间对象：Date</li>
+<li>数学计算对象：Math</li>
+<li>正则表达式对象：RegExp</li>
+<li>函数对象：Function</li>
+<li>错误对象：Error、TypeError、RangeError 等</li>
+<li>其他对象：Global、JSON 等</li>
+</ul>
+<h3 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h3><p>闭包是指一个函数可以访问另一个函数作用域内的变量。当一个函数嵌套在另一个函数中时，内部函数可以访问外部函数的变量，即使外部函数已经返回了。这种情况下，内部函数形成了一个闭包，它保留了外部函数的作用域链并可以继续访问这些变量。闭包常常用于实现函数的封装和私有化，以及在回调和事件处理等场景下的数据共享与传递。</p>
+<h3 id="如何理解作用域、作用域链和执行上下文？"><a href="#如何理解作用域、作用域链和执行上下文？" class="headerlink" title="如何理解作用域、作用域链和执行上下文？"></a>如何理解作用域、作用域链和执行上下文？</h3><p>在 JavaScript 中，作用域、作用域链和执行上下文是密切相关的概念，它们与变量和函数的查找、访问以及生命周期有关。</p>
+<ol>
+<li><p>作用域（Scope）：</p>
+<p><strong>作用域是一个变量或函数的可访问范围</strong>。JavaScript 中有三种作用域：<strong>全局作用域</strong>、<strong>局部（函数）作用域</strong>和<strong>块级作用域</strong>。全局作用域中声明的变量和函数可以在整个代码中访问，局部作用域中声明的变量和函数只能在特定的函数内部访问，块级作用域在一对花括号内定义，对<code>let</code>和<code>const</code>关键字声明的变量有效。</p>
+<p>变量的生命周期受其作用域的限制。全局作用域中的变量在整个程序执行过程中持续存在，局部作用域中的变量在函数执行结束时销毁，块级作用域在代码块执行结束时，块级作用域中的变量将被销毁。</p>
+</li>
+<li><p>作用域链（Scope Chain）：</p>
+<p><strong>当代码执行过程中访问一个变量或函数时，JavaScript 引擎会沿着作用域链查找该标识符</strong>。作用域链是由当前执行上下文的作用域和其所有父级作用域组成的链表。</p>
+<p>查找过程从当前作用域开始，然后逐级向上查找，直到找到目标标识符或到达全局作用域。如果在全局作用域中仍未找到目标标识符，则返回<code>undefined</code>。</p>
+</li>
+<li><p>执行上下文（Execution Context）：</p>
+<p><strong>执行上下文是 JavaScript 代码执行过程中的环境</strong>。每当进入一个新的函数执行或全局代码执行时，都会创建一个新的执行上下文。执行上下文包含了当前执行的代码所需的所有信息，如变量、函数、作用域链等。</p>
+<p>JavaScript 引擎使用执行上下文栈（Execution Context Stack）来管理执行上下文。栈顶的执行上下文为当前执行的代码环境。当一个函数被调用时，一个新的执行上下文被压入栈顶；当函数执行结束时，执行上下文从栈顶弹出，返回到调用者的上下文环境。</p>
+</li>
+</ol>
+<p>总结起来，作用域是变量和函数的可访问范围；作用域链是由当前执行上下文的作用域和其父级作用域组成的链表，用于在代码执行过程中查找变量和函数；执行上下文是代码执行过程中的环境，包含了当前执行的代码所需的所有信息。这三者共同决定了代码执行过程中变量和函数的查找、访问以及生命周期。</p>
+<h3 id="如何创建一个没有原型的对象？"><a href="#如何创建一个没有原型的对象？" class="headerlink" title="如何创建一个没有原型的对象？"></a>如何创建一个没有原型的对象？</h3><p>可以使用 Object.create(null) 方法创建一个没有原型的对象。这个方法创建一个全新的对象并将其原型设置为 null，因此它没有继承任何属性或方法。例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="literal">null</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">toString</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="如何理解原型链？"><a href="#如何理解原型链？" class="headerlink" title="如何理解原型链？"></a>如何理解原型链？</h3><p>原型链是 JavaScript 中实现继承的一种机制，它通过让一个对象的原型指向另一个对象，从而使得一个对象可以访问另一个对象中定义的属性和方法。当我们试图访问一个对象中不存在的属性或方法时，JavaScript 引擎会沿着原型链一直向上查找，直到找到该属性或方法为止，或者最终抵达 Object.prototype（所有对象的祖先）上停止查找。</p>
+<h3 id="let-const-var-比较"><a href="#let-const-var-比较" class="headerlink" title="let const var 比较"></a>let const var 比较</h3><ol>
+<li>作用域：<ul>
+<li><code>var</code>：声明的变量具有函数作用域。这意味着在函数内部声明的变量只能在该函数内部访问，而在函数外部声明的变量具有全局作用域。</li>
+<li><code>let</code>和<code>const</code>：声明的变量具有块级作用域。这意味着变量仅在声明它们的代码块（例如：<code>if</code>语句、<code>for</code>循环、<code>while</code>循环等）内部可访问。</li>
+</ul>
+</li>
+<li>变量提升（Hoisting）：<ul>
+<li><code>var</code>：声明的变量会被提升到所在作用域的顶部。这意味着在声明之前访问变量不会导致引用错误，但变量的值将是<code>undefined</code>。</li>
+<li><code>let</code>和<code>const</code>：声明的变量不会被提升。在声明之前访问变量会导致引用错误。</li>
+</ul>
+</li>
+<li>重复声明：<ul>
+<li><code>var</code>：允许在同一作用域内多次声明同名变量，后续声明将被忽略。</li>
+<li><code>let</code>和<code>const</code>：在同一作用域内不允许重复声明同名变量。尝试这样做会导致语法错误。</li>
+</ul>
+</li>
+<li>变量的可变性：<ul>
+<li><code>var</code>和<code>let</code>：声明的变量可被重新赋值。</li>
+<li><code>const</code>：声明的变量是不可变的，即一旦赋值，无法更改。这对于声明常量或确保某个变量在整个程序执行过程中保持不变的情况非常有用。</li>
+</ul>
+</li>
+</ol>
+<h3 id="JSON-stringify-有什么缺点？"><a href="#JSON-stringify-有什么缺点？" class="headerlink" title="JSON.stringify 有什么缺点？"></a>JSON.stringify 有什么缺点？</h3><p><code>JSON.stringify()</code>是一个将 JavaScript 对象转换为 JSON 字符串的方法。尽管它在许多情况下非常有用，但它确实存在一些限制和缺点：</p>
+<ol>
+<li>循环引用：<code>JSON.stringify()</code>无法处理具有循环引用的对象。如果一个对象的属性直接或间接引用了自身，<code>JSON.stringify()</code>将抛出一个错误，表示存在循环引用。</li>
+<li><code>undefined</code>、函数和 Symbol 忽略：<code>JSON.stringify()</code>不会序列化对象中的<code>undefined</code>、函数和 Symbol 类型的属性。这些属性将被忽略，不会出现在生成的 JSON 字符串中，单独转换则会返回<code>undefined</code>。</li>
+<li>丢失原型链：在对象序列化后，原型链上的属性和方法将丢失。只有对象自身的可枚举属性会被序列化。因此，在反序列化（使用<code>JSON.parse()</code>）后，原始对象的原型链信息将不复存在。</li>
+<li>日期对象处理：当使用<code>JSON.stringify()</code>序列化日期对象时，日期对象会被转换为它们的 ISO 字符串表示形式。在反序列化时，这些日期将被视为普通字符串，而不是日期对象。</li>
+<li>非数组和非对象的值：对于不是数组或对象的顶层值（例如：字符串、数字、布尔值等），<code>JSON.stringify()</code>会直接返回其对应的 JSON 表示，而不会将其包装在对象或数组中。</li>
+</ol>
+<h3 id="for…in-和-for…of-的区别"><a href="#for…in-和-for…of-的区别" class="headerlink" title="for…in 和 for…of 的区别?"></a>for…in 和 for…of 的区别?</h3><p>for…in 循环用于遍历对象的可枚举属性，返回的是属性名称；for…of 循环用于遍历可迭代对象（如数组、字符串、Map、Set 等），返回的是元素值。</p>
+<h3 id="谈谈你对-V8-垃圾回收的理解？"><a href="#谈谈你对-V8-垃圾回收的理解？" class="headerlink" title="谈谈你对 V8 垃圾回收的理解？"></a>谈谈你对 V8 垃圾回收的理解？</h3><p>V8 引擎主要采用了两种算法来处理垃圾回收：分代收集（Generational Collection）和增量标记（Incremental Marking）。</p>
+<ol>
+<li>分代收集：V8 将内存分为两个代：新生代（Young Generation）和老生代（Old Generation）。新生代中的对象存活时间较短，而老生代中的对象存活时间较长。新生代使用 Scavenge 算法进行垃圾回收，通常采用 Cheney 算法，将内存分为两个半区（From Space 和 To Space），每次垃圾回收时，会将存活的对象复制到 To Space 中，并清空 From Space。当一个对象在新生代中经历了多次垃圾回收仍然存活时，会将其移动到老生代。</li>
+<li>增量标记：老生代采用标记-清除（Mark-Sweep）算法进行垃圾回收。这种算法首先会标记所有可达的对象，然后清除所有未被标记的对象。为了避免在标记过程中产生长时间的停顿（Stop-The-World），V8 采用了增量标记策略。这种策略将标记过程分为多个阶段，在每个阶段之间，JavaScript 程序可以继续执行。这样可以降低垃圾回收对程序性能的影响。</li>
+</ol>
+<p>V8 垃圾回收是对 JavaScript 垃圾回收策略的具体实现。它采用分代收集和增量标记两种算法，有效降低了垃圾回收对程序性能的影响。</p>
+<h3 id="new-操作符都做了什么"><a href="#new-操作符都做了什么" class="headerlink" title="new 操作符都做了什么"></a>new 操作符都做了什么</h3><ol>
+<li>创建一个新对象</li>
+<li>对象的<code>__proto__</code>指向构造函数的<code>prototype</code></li>
+<li>构造函数将对象绑定到<code>this</code>并调用</li>
+<li>如果构造函数返回对象或函数则直接返回，否则返回这个新对象</li>
+</ol>
+<h3 id="类数组和数组的区别，dom-的类数组如何转换成数组"><a href="#类数组和数组的区别，dom-的类数组如何转换成数组" class="headerlink" title="类数组和数组的区别，dom 的类数组如何转换成数组"></a>类数组和数组的区别，dom 的类数组如何转换成数组</h3><p>类数组（Array-like）和数组（Array）都是用于存储多个值的数据结构，但它们之间存在一些关键区别：</p>
+<ol>
+<li>类型：数组是 JavaScript 的内置对象类型，继承自<code>Array.prototype</code>，具有一系列数组方法（如<code>push()</code>、<code>pop()</code>、<code>map()</code>等）。类数组是普通的对象，其属性名为索引（如<code>0</code>、<code>1</code>、<code>2</code>等），具有一个<code>length</code>属性，但不具备数组的方法。</li>
+<li>原型：数组的原型为<code>Array.prototype</code>，因此具有数组的所有方法。类数组的原型通常为<code>Object.prototype</code>，并不包含数组的方法。</li>
+</ol>
+<p>要将 DOM 的类数组（例如，通过<code>document.getElementsByClassName()</code>或<code>document.querySelectorAll()</code>获取的元素集合）转换为数组，可以使用以下方法之一：</p>
+<ol>
+<li><p>使用<code>Array.from()</code>方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> nodeList = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> array = <span class="title class_">Array</span>.<span class="title function_">from</span>(nodeList);</span><br></pre></td></tr></table></figure>
+
+<p><code>Array.from()</code>方法会创建一个新数组，并将类数组的元素逐个复制到新数组中。</p>
+</li>
+<li><p>使用扩展运算符（Spread Operator）：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> nodeList = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> array = [...nodeList];</span><br></pre></td></tr></table></figure>
+
+<p>扩展运算符<code>...</code>可以将类数组直接转换为数组。</p>
+</li>
+<li><p>使用<code>Array.prototype.slice.call()</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> nodeList = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> array = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(nodeList);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><code>Array.prototype.slice.call()</code>方法会将类数组作为上下文，并创建一个新数组，将类数组的元素逐个复制到新数组中。</p>
+<p>这些方法可以将类数组转换为数组，这样就可以在转换后的数组上使用数组的方法了。注意，这些方法不仅适用于 DOM 类数组，还适用于其他类数组对象。</p>
+<h3 id="offsetWidth-x2F-offsetHeight，clientWidth-x2F-clientHeight-与-scrollWidth-x2F-scrollHeight-的区别"><a href="#offsetWidth-x2F-offsetHeight，clientWidth-x2F-clientHeight-与-scrollWidth-x2F-scrollHeight-的区别" class="headerlink" title="offsetWidth&#x2F;offsetHeight，clientWidth&#x2F;clientHeight 与 scrollWidth&#x2F;scrollHeight 的区别"></a>offsetWidth&#x2F;offsetHeight，clientWidth&#x2F;clientHeight 与 scrollWidth&#x2F;scrollHeight 的区别</h3><p>offsetWidth&#x2F;offsetHeight 是元素的可见宽度&#x2F;高度加上 padding、border 和滚动条（如果存在）的宽度&#x2F;高度。</p>
+<p>clientWidth&#x2F;clientHeight 是元素的可见宽度&#x2F;高度，不包括 padding 和滚动条。</p>
+<p>scrollWidth&#x2F;scrollHeight 是元素内容的完整宽度&#x2F;高度，包括溢出部分。如果元素没有溢出，则 scrollWidth&#x2F;scrollHeight 等于 clientWidth&#x2F;clientHeight。如果有溢出，则 scrollWidth&#x2F;scrollHeight 大于 clientWidth&#x2F;clientHeight。</p>
+<h3 id="mouseover-x2F-mouseout-与-mouseenter-x2F-mouseleave-的区别与联系"><a href="#mouseover-x2F-mouseout-与-mouseenter-x2F-mouseleave-的区别与联系" class="headerlink" title="mouseover&#x2F;mouseout 与 mouseenter&#x2F;mouseleave 的区别与联系"></a>mouseover&#x2F;mouseout 与 mouseenter&#x2F;mouseleave 的区别与联系</h3><p>mouseover 和 mouseout 是 HTML DOM 事件，它们会在鼠标移入或移出元素时触发。它们也会在鼠标指针进入或离开<strong>子元素</strong>时触发。这也就是说，如果在父元素上有 mouseover 事件，并且鼠标指针进入子元素，则该元素上仍然会触发 mouseover 事件。mouseout 同理。</p>
+<p>mouseenter 和 mouseleave 事件也是在鼠标进入或离开元素时触发。与 mouseover 和 mouseout 不同的是，mouseenter 和 mouseleave 事件<strong>不会传播到子元素</strong>。因此，如果鼠标指针进入或离开元素的子元素，则不会触发 mouseenter 和 mouseleave 事件。</p>
+<h3 id="event-stopPropagation-与-event-stopImmediatePropagation-的区别"><a href="#event-stopPropagation-与-event-stopImmediatePropagation-的区别" class="headerlink" title="event.stopPropagation()与 event.stopImmediatePropagation 的区别"></a>event.stopPropagation()与 event.stopImmediatePropagation 的区别</h3><p>event.stopPropagation()可以阻止事件冒泡到父元素，但不阻止其他事件处理程序的执行。而 event.stopImmediatePropagation()可以立即阻止事件冒泡并取消同一元素上其他事件处理程序的执行。</p>
+<h3 id="说一下事件循环机制-Event-Loop"><a href="#说一下事件循环机制-Event-Loop" class="headerlink" title="说一下事件循环机制 Event Loop"></a>说一下事件循环机制 Event Loop</h3><p>事件循环（Event Loop）是 JavaScript 运行时环境中的一个核心概念，它负责协调异步操作和同步代码的执行。JavaScript 是单线程的，这意味着它一次只能执行一个任务。事件循环使 JavaScript 能够在执行同步代码的同时，处理异步操作（如定时器、用户交互和网络请求）的回调。</p>
+<p>事件循环的工作原理大致如下：</p>
+<ol>
+<li>首先，JavaScript 引擎执行全局同步代码（例如来自<code>&lt;script&gt;</code>标签或 Node.js 文件的代码）。</li>
+<li>当遇到异步操作（如 <code>setTimeout</code>、<code>setInterval</code>、<code>Promise</code>、<code>fetch</code> 等），它们的回调函数会被放入相应的任务队列中（微任务队列或宏任务队列）。</li>
+<li>同步代码执行完成后，事件循环开始检查微任务队列。如果队列中有任务，事件循环将依次执行它们，直到队列为空。</li>
+<li>接下来，事件循环检查宏任务队列。如果队列中有任务，事件循环将执行第一个任务，然后返回到微任务队列，检查是否有新的微任务需要执行。</li>
+<li>事件循环在微任务队列和宏任务队列之间循环，依次执行队列中的任务。当两个队列都为空时，事件循环将等待新的任务（如用户交互或网络请求回调）。</li>
+<li>当新任务出现时，事件循环将其添加到相应的队列中，并继续循环执行任务。</li>
+</ol>
+<p>事件循环的目标是在处理同步代码和异步回调之间保持平衡，确保 JavaScript 代码的执行效率和响应能力。通过这种方式，事件循环允许 JavaScript 在单线程环境中有效地处理并发操作。</p>
+<h3 id="esm-和-commonjs-的区别"><a href="#esm-和-commonjs-的区别" class="headerlink" title="esm 和 commonjs 的区别"></a>esm 和 commonjs 的区别</h3><p>ESM（ECMAScript Modules）和 CommonJS 是 JavaScript 中两种不同的模块系统。它们都允许将代码拆分成可重用的模块，并在需要时导入这些模块。尽管它们都实现了相似的功能，但它们之间存在一些关键差异：</p>
+<ol>
+<li><p>语法：ESM 和 CommonJS 使用不同的语法来导入和导出模块。</p>
+<ul>
+<li>ESM 使用 <code>import</code> 和 <code>export</code> 关键字</li>
+<li>CommonJS 使用 <code>require</code> 和 <code>module.exports</code>关键字</li>
+</ul>
+</li>
+<li><p>运行时加载与静态加载：</p>
+<ul>
+<li>CommonJS 是<strong>运行时加载</strong>，这意味着模块在运行时解析和加载。因此，在运行时可以动态修改模块和依赖关系。</li>
+<li>ESM 是<strong>静态加载</strong>，这意味着模块在编译时解析和加载。这允许更好的优化，如代码消除和更快的加载速度，但不允许在运行时动态修改模块。</li>
+</ul>
+</li>
+<li><p>作用域：ESM 和 CommonJS 在处理变量作用域方面有所不同。</p>
+<ul>
+<li>ESM 使用<strong>模块作用域</strong>，每个模块具有自己的顶级作用域。在模块内声明的变量不会污染全局作用域。</li>
+<li>CommonJS 使用<strong>文件作用域</strong>，但与 ESM 不同，CommonJS 模块可以通过 <code>global</code> 对象访问全局作用域。</li>
+</ul>
+</li>
+<li><p>循环依赖：ESM 和 CommonJS 处理循环依赖的方式不同。</p>
+<ul>
+<li>ESM 可以更好地处理循环依赖，因为模块是静态加载的。在循环依赖中，导入的值可能是不完整的，但不会导致错误。</li>
+<li>CommonJS 在处理循环依赖时可能会遇到问题，因为模块是运行时加载的。这可能导致在循环依赖中的模块中获得一个不完整的对象。</li>
+</ul>
+</li>
+<li><p>兼容性和使用场景：</p>
+<ul>
+<li>CommonJS 主要用于 Node.js 环境，因为它是 Node.js 的原生模块系统。虽然现代 Node.js 版本也支持 ESM，但很多旧的 Node.js 代码仍使用 CommonJS。然而，许多新的 Node.js 项目逐渐采用 ESM。</li>
+<li>ESM 通常用于现代 Web 开发，因为大多数现代浏览器原生支持 ESM。在使用构建工具（如 Webpack、Rollup 或 Parcel）时，ESM 也提供了更好的优化和打包能力。</li>
+</ul>
+</li>
+<li><p>实时绑定与值拷贝：</p>
+<ul>
+<li>ESM 使用<strong>实时绑定</strong>，当导入的值发生更改时，导入模块的值也会跟着更改。这意味着导入的值始终保持最新。</li>
+<li>CommonJS 使用<strong>值拷贝</strong>，当模块被导入时，值被复制到导入模块。这意味着在导入模块中，值的更改不会反映到原始模块，导入的值在导入时是固定的。</li>
+</ul>
+</li>
+<li><p>导出值：</p>
+<ul>
+<li>ESM 导出值是<strong>映射关系</strong>，<strong>可读，不可修改</strong>，但可通过导出的函数修改导出的值。</li>
+<li>CoomonJS 导出<strong>值的拷贝</strong>，<strong>可以修改导出的值</strong>。</li>
+</ul>
+</li>
+<li><p>export 使用：</p>
+<ul>
+<li>ESM export 和 export default 支持一起使用。</li>
+<li>CoomonJS module.exports 和 exports 不支持一起使用，会被覆盖。</li>
+</ul>
+</li>
+</ol>
+<p>总结一下，ESM 和 CommonJS 的主要区别在于它们的语法、加载机制、作用域、循环依赖处理、兼容性和使用场景以及实时绑定与值拷贝。尽管它们在某些方面有所不同，它们都是为了解决 JavaScript 模块化编程的问题。</p>
+<h3 id="解释下-JavaScript-栈内存和堆内存？"><a href="#解释下-JavaScript-栈内存和堆内存？" class="headerlink" title="解释下 JavaScript 栈内存和堆内存？"></a>解释下 JavaScript 栈内存和堆内存？</h3><p>在 JavaScript 中，栈内存（Stack Memory）和堆内存（Heap Memory）扮演着不同的角色，它们分别负责存储不同类型的数据。以下是它们在 JavaScript 中的简要说明：</p>
+<ol>
+<li>栈内存（Stack Memory）：<ul>
+<li>栈内存主要用于存储基本类型（原始类型）的值，如 <code>number</code>、<code>string</code>、<code>boolean</code>、<code>null</code> 和 <code>undefined</code>。这些类型的值通常较小且固定大小。</li>
+<li>栈内存还负责存储函数调用的执行上下文、局部变量和临时数据。</li>
+<li>栈内存遵循后进先出（LIFO）的原则进行分配和释放空间。当函数被调用时，函数的执行上下文、局部变量和相关信息会被压入栈中；当函数返回时，这些数据会从栈中弹出。</li>
+<li>栈内存的分配和回收速度较快，因为内存管理由 JavaScript 引擎自动完成。</li>
+<li>由于栈内存有限，如果递归调用过深或者分配大量的局部变量，可能导致栈溢出。</li>
+</ul>
+</li>
+<li>堆内存（Heap Memory）：<ul>
+<li>堆内存主要用于存储引用类型的值，如对象（<code>object</code>）、数组（<code>array</code>）和函数（<code>function</code>）。这些类型的值通常较大，大小不固定。</li>
+<li>JavaScript 引擎使用垃圾回收机制自动管理堆内存中的对象。当对象不再被引用时，它们会被标记为垃圾，并在下一次垃圾回收时释放内存。</li>
+<li>与栈内存相比，堆内存分配和回收速度较慢，因为需要管理更复杂的数据结构和垃圾回收机制。</li>
+<li>堆内存可以动态分配，因此可以存储更多数据。</li>
+<li>如果没有正确处理引用关系，可能导致内存泄漏。</li>
+</ul>
+</li>
+</ol>
+<p>总结一下，在 JavaScript 中，栈内存用于存储基本类型的值、函数调用的执行上下文和局部变量，堆内存用于存储引用类型的值。理解栈内存和堆内存的差异有助于编写高效且内存友好的 JavaScript 程序。</p>
+<h3 id="箭头函数与普通函数区别？"><a href="#箭头函数与普通函数区别？" class="headerlink" title="箭头函数与普通函数区别？"></a>箭头函数与普通函数区别？</h3><p>箭头函数（Arrow Functions）与普通函数（常被称为函数声明或函数表达式）在 JavaScript 中有一些重要的区别。这些区别包括语法、<code>this</code> 关键字的绑定、arguments 对象的使用、构造函数行为以及原型链。以下是箭头函数和普通函数之间的主要区别：</p>
+<ol>
+<li><code>this</code> 关键字绑定：<ul>
+<li>箭头函数没有自己的 <code>this</code>，它从包围它的普通函数或全局作用域继承 <code>this</code>。这使得在事件处理器或回调函数中使用箭头函数非常方便，因为它们自动捕获外部的 <code>this</code>。</li>
+<li>普通函数有自己的 <code>this</code>，它的值在函数调用时确定。根据函数调用的方式（如通过对象方法调用、直接调用、构造函数调用等），<code>this</code> 的值可能会有所不同。</li>
+</ul>
+</li>
+<li>arguments 对象：<ul>
+<li>箭头函数没有自己的 <code>arguments</code> 对象。它们可以访问包围它们的普通函数的 <code>arguments</code> 对象。</li>
+<li>普通函数有自己的 <code>arguments</code> 对象，这是一个类数组对象，包含了传递给函数的参数。</li>
+</ul>
+</li>
+<li>构造函数行为：<ul>
+<li>箭头函数不能作为构造函数使用，因此不能使用 <code>new</code> 关键字调用。它们也没有 <code>prototype</code> 属性。</li>
+<li>普通函数可以作为构造函数使用，通过 <code>new</code> 关键字创建新的对象实例。</li>
+</ul>
+</li>
+<li>原型链：<ul>
+<li>由于箭头函数没有 <code>prototype</code> 属性，它们不能作为其他对象的原型。</li>
+<li>普通函数有 <code>prototype</code> 属性，可以作为其他对象的原型。</li>
+</ul>
+</li>
+<li>生成器：<ul>
+<li>箭头函数不能使用<code>yield</code>关键字。</li>
+<li>普通函数可以使用<code>yield</code>关键字变成生成器函数。</li>
+</ul>
+</li>
+</ol>
+<h3 id="isNaN-与-Number-isNaN-的区别"><a href="#isNaN-与-Number-isNaN-的区别" class="headerlink" title="isNaN 与 Number.isNaN 的区别"></a>isNaN 与 Number.isNaN 的区别</h3><p>isNaN 函数用于检查一个值是否是 NaN，它会将传入的参数先转换为数字类型再进行判断。如果传入的参数无法转换为数字类型，则会返回 true。</p>
+<p>而 Number.isNaN 用于检查一个值是否为 NaN，但它不会将参数转换为数字类型，只有在参数本身就是 NaN 时才返回 true。否则，返回 false。</p>
+<h3 id="谈谈你对-this-的理解"><a href="#谈谈你对-this-的理解" class="headerlink" title="谈谈你对 this 的理解"></a>谈谈你对 this 的理解</h3><p>在 JavaScript 中，<code>this</code> 是一个特殊的关键字，它在函数调用时动态地引用了一个对象。<code>this</code> 的值取决于函数的调用方式，不同的调用方式会导致 <code>this</code> 指向不同的对象。以下是一些关于 <code>this</code> 的不同用法和场景：</p>
+<ol>
+<li><p>全局上下文：</p>
+<p>当在全局作用域中使用 <code>this</code> 时，它指向全局对象。在浏览器环境中，全局对象是 <code>window</code>；在 Node.js 环境中，全局对象是 <code>global</code>。</p>
+</li>
+<li><p>函数调用：</p>
+<p>当在函数内部使用 <code>this</code> 且函数作为普通函数调用时（非对象方法调用），<code>this</code> 通常指向全局对象。但在严格模式下（使用 <code>&quot;use strict&quot;</code>），<code>this</code> 会被设置为 <code>undefined</code>。</p>
+</li>
+<li><p>对象方法调用：</p>
+<p>当在对象的方法内部使用 <code>this</code> 时，<code>this</code> 指向调用该方法的对象。这也适用于原型链中的方法。</p>
+</li>
+<li><p>构造函数调用：</p>
+<p>当在构造函数内部使用 <code>this</code> 且使用 <code>new</code> 关键字调用构造函数时，<code>this</code> 指向新创建的对象实例。</p>
+</li>
+<li><p>显式绑定：</p>
+<p>使用 <code>call</code>、<code>apply</code> 或 <code>bind</code> 方法调用函数时，可以显式地将 <code>this</code> 绑定到一个指定的对象。</p>
+</li>
+<li><p>箭头函数：</p>
+<p>箭头函数没有自己的 <code>this</code>，它从包围它的普通函数或全局作用域继承 <code>this</code>。这使得在事件处理器或回调函数中使用箭头函数非常方便，因为它们自动捕获外部的 <code>this</code>。</p>
+</li>
+</ol>
+<p>总之，<code>this</code> 是 JavaScript 中一个动态上下文的关键字，它的值取决于函数调用的方式。</p>
+<h3 id="谈谈你对严格模式的理解"><a href="#谈谈你对严格模式的理解" class="headerlink" title="谈谈你对严格模式的理解"></a>谈谈你对严格模式的理解</h3><p>在 JavaScript 中，严格模式（strict mode）和非严格模式（sloppy mode）主要有以下几个区别：</p>
+<ol>
+<li>变量声明： 在严格模式下，必须明确地声明变量（使用<code>let</code>、<code>const</code>或<code>var</code>关键字）。否则，将会抛出一个引用错误（ReferenceError）。在非严格模式下，如果没有声明变量，JavaScript 会自动将其声明为全局变量，这可能会导致意外的全局污染。</li>
+<li>this 指针： 在严格模式下，全局作用域中的<code>this</code>值为<code>undefined</code>。在非严格模式下，全局作用域中的<code>this</code>值为全局对象（浏览器环境中为<code>window</code>对象，Node.js 环境中为<code>global</code>对象）。此外，在严格模式下，不允许使用<code>call</code>、<code>apply</code>或<code>bind</code>将<code>this</code>值设置为<code>null</code>或<code>undefined</code>。</li>
+<li>禁止使用未来保留字： 严格模式中，不能将一些未来保留字（如<code>implements</code>、<code>interface</code>、<code>let</code>、<code>package</code>、<code>private</code>、<code>protected</code>、<code>public</code>、<code>static</code>和<code>yield</code>）用作变量名或函数名。</li>
+<li>禁止使用八进制字面量： 在严格模式下，不允许使用八进制字面量（如<code>0123</code>）。非严格模式下，八进制字面量是允许的。</li>
+<li>禁止删除变量、函数和函数参数： 严格模式中，使用<code>delete</code>操作符删除变量、函数和函数参数会引发语法错误（SyntaxError）。在非严格模式下，这样的操作是允许的，但实际上不会删除这些对象。</li>
+<li>限制函数参数的重复声明： 在严格模式下，如果一个函数具有多个相同名称的参数，将会抛出一个语法错误。非严格模式下允许这种重复声明，但只有最后一个参数值会生效。</li>
+<li>错误处理： 严格模式相较于非严格模式，更严格地处理某些类型的错误。例如，当试图修改只读属性、给不可扩展的对象添加属性或删除不可配置的属性时，严格模式会抛出类型错误（TypeError），而非严格模式下则会静默失败。</li>
+</ol>
+<p>要启用严格模式，可以在脚本或函数开头添加<code>&quot;use strict&quot;;</code>指令。这将对整个脚本或函数体中的代码启用严格模式。推荐使用严格模式编写代码，因为它可以帮助发现潜在的错误并避免一些不良的编程实践。</p>
+<h3 id="谈谈你对-Promise-的理解"><a href="#谈谈你对-Promise-的理解" class="headerlink" title="谈谈你对 Promise 的理解"></a>谈谈你对 Promise 的理解</h3><p>Promise 是一种在 JavaScript 中用于处理异步操作的编程模式。它表示一个尚未完成但预计在未来某个时刻完成的操作的结果。Promise 允许我们以更简洁、易读的方式处理异步操作，避免了传统的回调地狱（callback hell）问题。</p>
+<p>Promise 有三种状态：</p>
+<ol>
+<li>pending（待定）：初始状态，既不是 fulfilled，也不是 rejected。</li>
+<li>fulfilled（已实现）：表示异步操作已成功完成。</li>
+<li>rejected（已拒绝）：表示异步操作失败。</li>
+</ol>
+<p>Promise 具有以下特点：</p>
+<ol>
+<li>Promise 对象是不可变的，一旦创建，其状态就不能再被改变。</li>
+<li>Promise 状态只能从 pending 变为 fulfilled 或 rejected，不能逆向改变，且只能改变一次。</li>
+<li>Promise 允许我们将成功和失败的处理函数分开，增加代码的可读性。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>无法取消：一旦创建了 Promise，就无法取消它。这可能导致在某些情况下，不再需要结果的异步操作仍然在执行。</li>
+<li>总是异步：Promise 的回调总是异步执行，即使操作已经完成。这可能会导致一些意外的行为，特别是在执行顺序敏感的情况下。</li>
+<li>调试困难：由于 Promise 的链式调用和异步特性，调试 Promise 可能比调试同步代码更具挑战性。错误堆栈可能不够清晰，难以确定问题出在哪里。</li>
+</ol>
+<p>Promise 基本用法包括：</p>
+<ol>
+<li>创建 Promise 对象：通过<code>new Promise(executor)</code>创建一个 Promise 对象，其中 executor 是一个执行器函数，接受两个参数：resolve 和 reject。成功时调用 resolve 函数并传递结果，失败时调用 reject 函数并传递原因。</li>
+<li>链式调用：通过<code>.then()</code>方法处理 fulfilled 状态，接受一个回调函数作为参数，当 Promise 状态变为 fulfilled 时调用。<code>.catch()</code>方法处理 rejected 状态，接受一个回调函数作为参数，当 Promise 状态变为 rejected 时调用。</li>
+<li>Promise.all：接受一个 Promise 数组作为参数，当所有 Promise 都变为 fulfilled 状态时返回一个新的 Promise，其值为所有 Promise 结果的数组。如果有任意一个 Promise 变为 rejected 状态，则返回的 Promise 也变为 rejected，且返回原因是第一个 rejected 的 Promise 的原因。</li>
+<li>Promise.race：接受一个 Promise 数组作为参数，返回一个新的 Promise，其状态和结果与第一个完成（无论是 fulfilled 还是 rejected）的 Promise 相同。</li>
+</ol>
+<p>通过使用 Promise，我们可以更有效地处理异步操作，降低代码复杂性，提高可维护性。在现代 JavaScript 开发中，Promise 已成为处理异步操作的重要基石。</p>
+<h3 id="为什么-0-1-0-2-不等于-0-3"><a href="#为什么-0-1-0-2-不等于-0-3" class="headerlink" title="为什么 0.1+0.2 不等于 0.3"></a>为什么 0.1+0.2 不等于 0.3</h3><p>在 JavaScript（以及许多其他编程语言）中，0.1 + 0.2 不等于 0.3 的原因是浮点数精度问题。JavaScript 使用 IEEE 754 标准中规定的双精度浮点数（double-precision floating point）来表示数字。这种表示方法在大多数情况下都很有效，但有时会导致精度损失。</p>
+<p>双精度浮点数只有有限的位数（64 位）来表示数字，其中 1 位表示符号位，11 位表示指数，以及 52 位表示尾数。当尝试表示某些数字（特别是十进制小数）时，它们的二进制表示可能是无限循环的，因此需要截断以适应有限的位数。这可能导致浮点数的近似值与实际值之间存在微小差异。</p>
+<p>在本例中，0.1 和 0.2 的二进制表示都是无限循环的，需要截断。当它们被截断并以双精度浮点数存储时，这两个数字的实际值与理论值略有不同。因此，当执行 0.1 + 0.2 时，结果也会有微小误差，与 0.3 的理论值不完全相等。</p>
+<p>为了解决这个问题，可以将结果四舍五入到所需的精度。例如，如果要比较两个数字是否相等，可以将它们四舍五入到一个合理的精度，然后再进行比较：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">areNumbersAlmostEqual</span>(<span class="params">num1, num2, epsilon = <span class="number">1e-10</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">abs</span>(num1 - num2) &lt; epsilon;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">areNumbersAlmostEqual</span>(<span class="number">0.1</span> + <span class="number">0.2</span>, <span class="number">0.3</span>)); <span class="comment">// 输出 true</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们使用一个称为”epsilon”的小数值来表示可接受的误差范围。我们计算两个数字之差的绝对值，如果它小于 epsilon，我们认为这两个数字几乎相等。在实践中，需要根据具体问题选择合适的 epsilon 值。</p>
 ]]></content>
       <categories>
         <category>面试那点事</category>
