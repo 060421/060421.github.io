@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.17.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="面试期间常被问到的一些问题">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="前端面试题-HTML&#x2F;CSS">
+<meta property="og:url" content="http://example.com/posts/12/index.html">
+<meta property="og:site_name" content="李正浩的个人博客">
+<meta property="og:description" content="面试期间常被问到的一些问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-27T01:04:40.000Z">
+<meta property="article:modified_time" content="2023-07-03T08:53:07.966Z">
+<meta property="article:author" content="壮壮姐姐~">
+<meta property="article:tag" content="高频前端面试题">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/posts/12/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/12/","path":"posts/12/","title":"前端面试题-HTML/CSS"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>前端面试题-HTML/CSS | 李正浩的个人博客</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?bfa9046a9727afd7b1ddf08f308c3468"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">李正浩的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">壮壮姐姐~</p>
+      <img class="custom-logo-image" src="/images/logo.png" alt="李正浩的个人博客">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E9%80%89%E6%8B%A9%E5%99%A8%E6%9D%83%E9%87%8D"><span class="nav-number">1.</span> <span class="nav-text">CSS 选择器权重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#px%E3%80%81em%E3%80%81rem%E3%80%81vw%E3%80%81vh-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">px、em、rem、vw、vh 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98"><span class="nav-number">4.</span> <span class="nav-text">回流与重绘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#H5-%E6%96%B0%E5%A2%9E%E7%89%B9%E6%80%A7%E5%92%8C-css3-%E6%96%B0%E5%A2%9E%E7%89%B9%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">H5 新增特性和 css3 新增特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%A1%88"><span class="nav-number">6.</span> <span class="nav-text">清除浮动有哪些方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E5%92%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text">伪类和伪元素的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOCTYPE-%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">DOCTYPE 有什么作用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#img-%E6%A0%87%E7%AD%BE%E7%9A%84-title-%E5%92%8C-alt-%E5%B1%9E%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">9.</span> <span class="nav-text">img 标签的 title 和 alt 属性有什么区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E8%BF%B0%E4%B8%80%E4%B8%8B-src-%E4%B8%8E-href-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">10.</span> <span class="nav-text">简述一下 src 与 href 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iframe-%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="nav-number">11.</span> <span class="nav-text">iframe 有哪些优缺点？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84-meta-%E6%A0%87%E7%AD%BE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">常用的 meta 标签有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defer-%E5%92%8C-async-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">13.</span> <span class="nav-text">defer 和 async 的区别 ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E5%B1%9E%E6%80%A7%E6%98%AF%E5%90%A6%E5%8C%BA%E5%88%86%E5%A4%A7%E5%B0%8F%E5%86%99%EF%BC%9F"><span class="nav-number">14.</span> <span class="nav-text">CSS 属性是否区分大小写？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#link-%E4%B8%8E-import-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">15.</span> <span class="nav-text">link 与@import 的区别</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="壮壮姐姐~"
+      src="/images/head_2.gif">
+  <p class="site-author-name" itemprop="name">壮壮姐姐~</p>
+  <div class="site-description" itemprop="description">心有所向，无问东西</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/060421" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;060421" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+            
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head_2.gif">
+      <meta itemprop="name" content="壮壮姐姐~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李正浩的个人博客">
+      <meta itemprop="description" content="心有所向，无问东西">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="前端面试题-HTML/CSS | 李正浩的个人博客">
+      <meta itemprop="description" content="面试期间常被问到的一些问题">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端面试题-HTML/CSS
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-27 09:04:40" itemprop="dateCreated datePublished" datetime="2022-04-27T09:04:40+08:00">2022-04-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-03 16:53:07" itemprop="dateModified" datetime="2023-07-03T16:53:07+08:00">2023-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9D%A2%E8%AF%95%E9%82%A3%E7%82%B9%E4%BA%8B/" itemprop="url" rel="index"><span itemprop="name">面试那点事</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">面试期间常被问到的一些问题</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="CSS-选择器权重"><a href="#CSS-选择器权重" class="headerlink" title="CSS 选择器权重"></a>CSS 选择器权重</h3><ul>
+<li>!important &gt; 行内样式 &gt; id 选择器 &gt; 类选择器 &gt; 标签选择器 &gt; 通配符 &gt; 继承</li>
+</ul>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><ul>
+<li>在我们 HTML 页面中，每一个元素都可以被看作一个盒子，而这个盒子由：内容区（content）、填充区（padding）、边框区（border）、外边界区（margin）四部分组成。</li>
+<li>盒子模型有哪两种<ul>
+<li>标准模式下: 一个块的总宽度(页面中占的宽度)&#x3D; width + margin(左右) + padding(左右) + border(左右)</li>
+<li>怪异模式下： 一个块的总宽度&#x3D; width + margin(左右)（即 width 已经包含了 padding 和 border 值）（IE 浏览器）</li>
+</ul>
+</li>
+<li>标准和怪异模型的转换<ul>
+<li>box-sizing:content-box; 将采用标准模式的盒子模型标准</li>
+<li>box-sizing:border-box; 将采用怪异模式的盒子模型标准</li>
+<li>box-sizing:inherit; 规定应从父元素继承 box-sizing 属性的值。</li>
+</ul>
+</li>
+</ul>
+<h3 id="px、em、rem、vw、vh-的区别"><a href="#px、em、rem、vw、vh-的区别" class="headerlink" title="px、em、rem、vw、vh 的区别"></a>px、em、rem、vw、vh 的区别</h3><ul>
+<li>px 是固定的像素，一旦设置了就无法因为适应页面大小而改变。</li>
+<li>em 和 rem 相对于 px 更具有灵活性，他们是相对长度单位，意思是长度不是定死了的，更适用于响应式布局。</li>
+<li>em 是相对于其父元素来设置字体大小的，一般都是以&lt; body &gt;的“font-size”为基准。这样会存在一个问题，进行任何元素设置，都有可能需要知道他父元素的大小。</li>
+<li>而 rem 是相对于根元素&lt; html &gt;，这样就意味着，我们只需要在根元素确定一个参考值。</li>
+<li>vh、vw：根据窗口的宽度，分成 100 等份，100vw 就表示满宽，50vw 就表示一半宽。vh 同理</li>
+</ul>
+<h3 id="回流与重绘"><a href="#回流与重绘" class="headerlink" title="回流与重绘"></a>回流与重绘</h3><ul>
+<li>回流：页面中元素的尺寸，布局，隐藏等改变而需要重新构建页面，就会引起回流。</li>
+<li>重绘：页面中元素属性发生改变，而这些属性只是影响元素的外观，风格，而不会影响布局的，则就叫称为重绘。</li>
+<li>关系：回流必将引起重绘，而重绘不一定会引起回流。</li>
+<li>如何避免：<ul>
+<li>避免操作 DOM，创建一个 documentFragment，在它上面应用所有 DOM 操作，最后再把它添加到 window.document 上。</li>
+<li>也可以在一个 display:none 的元素上进行操作，最终把它显示出来。因为 display:none 上的 DOM 操作不会引发回流和重绘。</li>
+<li>尽可能在 DOM 树的末端改变 class ，尽可能在 DOM 树的里面改变 class，可以限制回流的范围，使其影响尽可能少的节点。</li>
+<li>将需要多次回流的元素 position 属性设为 absolute 或 fixed，这样该元素就会脱离文档流，它的变化不会影响其他元素变化。</li>
+</ul>
+</li>
+</ul>
+<h3 id="H5-新增特性和-css3-新增特性"><a href="#H5-新增特性和-css3-新增特性" class="headerlink" title="H5 新增特性和 css3 新增特性"></a>H5 新增特性和 css3 新增特性</h3><ul>
+<li><p>H5 新增布局属性：header：头部区域、nav：导航区域、main：主体区域、section：小区域、aside：边栏、article：正文、footer：页尾区域</p>
+</li>
+<li><p>H5 新增多媒体标签：音频：audio、视频：video</p>
+</li>
+<li><p>H5 新增表单控件：date、time、url、search、file、number</p>
+</li>
+<li><p>H5 新增 web 本地存储：localstorage、sessionstorage</p>
+</li>
+<li><p>CSS3 新增文字阴影：text-shadow</p>
+</li>
+<li><p>CSS3 新增边框圆角：border-radius</p>
+</li>
+<li><p>CSS3 新增边框阴影：border-shadow</p>
+</li>
+<li><p>CSS3 新增背景大小：background-size</p>
+</li>
+<li><p>CSS3 新增渐变：linear-gradient</p>
+</li>
+<li><p>CSS3 新增盒模型：box-sizing</p>
+</li>
+</ul>
+<h3 id="清除浮动有哪些方案"><a href="#清除浮动有哪些方案" class="headerlink" title="清除浮动有哪些方案"></a>清除浮动有哪些方案</h3><blockquote>
+<p>清除浮动主要是为了解决父元素因为子元素浮动引起高度塌陷的问题。<br>本质上清除浮动的方式有两种，一种是利用 clear 属性，一种是利用 BFC。<br>clear 属性清除浮动又包括空标签法和伪元素法两种，代码如下：</p>
+</blockquote>
+<ul>
+<li>使用空标签清除浮动在浮动元素的末尾添加一个空标签，并设置 <code>clear:both</code> 属性，即可清除浮动。例如：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-parent&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 前两个盒子给上浮动 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-left&quot;</span>&gt;</span>左浮动<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-right&quot;</span>&gt;</span>右浮动<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 空盒子，css中给上clear:both属性 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clearfix&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 <code>:after</code> 伪元素清除浮动</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-parent&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 前两个盒子给上浮动 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-left&quot;</span>&gt;</span>左浮动<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-right&quot;</span>&gt;</span>右浮动<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.float-parent</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: table;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>BFC 清除浮动的方式有多种，常用的 <code>overflow</code> 为例：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-parent&quot;</span> <span class="attr">style</span>=<span class="string">&quot;overflow: hidden;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;float-right&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="伪类和伪元素的区别"><a href="#伪类和伪元素的区别" class="headerlink" title="伪类和伪元素的区别"></a>伪类和伪元素的区别</h3><blockquote>
+<p>在 CSS 中，伪类和伪元素都是用来指定元素的特殊状态和样式。它们的最大区别在于，伪类可以选择文档中元素的一些特殊状态，而伪元素可以在文档中创建一些虚拟的元素。</p>
+</blockquote>
+<p><strong>伪类：</strong></p>
+<ul>
+<li>:hover（鼠标悬停时）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>:active（元素被激活时）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: gray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>checked（选择状态时）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&quot;checkbox&quot;</span>]</span><span class="selector-pseudo">:checked</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>:nth-child（选择某个特定位置的子元素）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>) &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>伪元素：</strong></p>
+<ul>
+<li>::before（在元素内容前插入内容）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;Chapter&quot;</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>::after（在元素内容后插入内容）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot; (The End)&quot;</span>;</span><br><span class="line">  <span class="attribute">font-style</span>: italic;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>::first-letter（选择元素内容的第一个字母）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::first-letter</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">color</span>: purple;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>::selection（选择用户选择的文本）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::selection</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: yellow;</span><br><span class="line">  <span class="attribute">color</span>: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="DOCTYPE-有什么作用？"><a href="#DOCTYPE-有什么作用？" class="headerlink" title="DOCTYPE 有什么作用？"></a>DOCTYPE 有什么作用？</h3><ul>
+<li>DOCTYPE 是一种只是浏览器以何种 HTML 或 XHTML 规范来解析文档的声明。它能够告知浏览器网页文档使用的标记语言的类型以及版本，从而确保浏览器能够正确地展示网页内容。DOCTYPE 声明通常位于 HTML 文档的开头，是 HTML 文档的必须部分。</li>
+</ul>
+<h3 id="img-标签的-title-和-alt-属性有什么区别"><a href="#img-标签的-title-和-alt-属性有什么区别" class="headerlink" title="img 标签的 title 和 alt 属性有什么区别"></a>img 标签的 title 和 alt 属性有什么区别</h3><ul>
+<li><code>alt</code> 属性用于为图像提供替代文本，即使图像无法加载，也可以描述图像内容，提高网页的可访问性和可用性。</li>
+<li><code>title</code> 属性则提供有关图像的额外信息，可以通过鼠标悬停或使用辅助技术来查看。它通常用于提供更多的上下文或补充描述，但并不是必需的。</li>
+</ul>
+<h3 id="简述一下-src-与-href-的区别"><a href="#简述一下-src-与-href-的区别" class="headerlink" title="简述一下 src 与 href 的区别"></a>简述一下 src 与 href 的区别</h3><ul>
+<li><p>在 HTML 中，src 属性是用来指定外部资源的 URL，如图像、脚本或嵌入式对象的位置。例如，<img> 标签中的 src 属性指定图像的 URL。</p>
+</li>
+<li><p>而 href 属性则用来指定超文本链接的目标资源的位置，如超链接或 link 标记中的外部样式表。例如，<a> 标签中的 href 属性指定了链接目标的 URL。</p>
+</li>
+</ul>
+<h3 id="iframe-有哪些优缺点？"><a href="#iframe-有哪些优缺点？" class="headerlink" title="iframe 有哪些优缺点？"></a>iframe 有哪些优缺点？</h3><ul>
+<li>iframe（内联框架）是一种 HTML 元素，它允许在当前文档中嵌入另一个独立的 HTML 文档。iframe 有一些优点和缺点：</li>
+<li>优点：<ul>
+<li>内容隔离：iframe 可以将不同来源的内容隔离开来，使得它们在不同的上下文中运行。这有助于保护当前文档免受潜在的安全风险，并确保不同来源的内容不会互相干扰。</li>
+<li>异步加载：iframe 中的内容可以异步加载，这意味着页面主体内容可以在 iframe 加载完成之前呈现。这有助于提高页面加载速度。</li>
+<li>独立滚动：iframe 内的内容可以独立滚动，而不会影响主页面的滚动。这有助于在需要展示大量内容的情况下，提高用户体验。</li>
+<li>跨域资源访问：在一定程度上，iframe 可以用于访问跨域资源，例如嵌入来自其他域的网页或应用。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>性能影响：iframe 的使用可能会导致性能下降，因为它需要浏览器加载额外的文档资源。每个嵌入的 iframe 都需要额外的 HTTP 请求，这可能会延长页面加载时间。</li>
+<li>复杂性增加：iframe 的使用可能会使页面结构更加复杂，导致维护困难。而且，在 iframe 和主页面之间进行通信可能会涉及到跨域问题，这会增加开发难度。</li>
+<li>SEO 不友好：搜索引擎可能无法完全索引 iframe 中的内容，这会影响到网页的搜索引擎优化（SEO）。</li>
+<li>可访问性问题：iframe 在某些情况下可能导致可访问性问题。例如，屏幕阅读器可能无法正确解析 iframe 中的内容，导致部分用户无法访问这些内容。</li>
+</ul>
+</li>
+<li>综上所述，iframe 有一些优点，如内容隔离、异步加载和独立滚动等。然而，它也有一些缺点，如性能影响、复杂性增加、SEO 不友好和可访问性问题等。在使用 iframe 时，需要权衡这些优缺点，确保它适用于你的需求。</li>
+</ul>
+<h3 id="常用的-meta-标签有哪些？"><a href="#常用的-meta-标签有哪些？" class="headerlink" title="常用的 meta 标签有哪些？"></a>常用的 meta 标签有哪些？</h3><ul>
+<li><p>meta 标签提供了有关 HTML 文档的元数据，如描述、关键词、作者等。以下是一些常用的 meta 标签：</p>
+</li>
+<li><p><strong>字符集声明：</strong>声明文档使用的字符编码，通常为 UTF-8。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>视口设置：</strong>控制页面在移动设备上的显示方式，如缩放级别和页面宽度。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>页面描述：</strong>提供页面的简短描述，有助于搜索引擎了解页面内容。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;A brief description of the page.&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>关键词：</strong>设置页面关键词，有助于搜索引擎优化（SEO）。但请注意，大多数现代搜索引擎不再使用此标签。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;keyword1, keyword2, keyword3&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>作者：</strong>指定页面作者。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;author&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Author Name&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>禁止缓存：</strong>告诉浏览器不要缓存页面。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">http-equiv</span>=<span class="string">&quot;Cache-Control&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">&quot;no-cache, no-store, must-revalidate&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Pragma&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-cache&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Expires&quot;</span> <span class="attr">content</span>=<span class="string">&quot;0&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>自动刷新：</strong>设置页面在特定时间间隔后自动刷新。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;refresh&quot;</span> <span class="attr">content</span>=<span class="string">&quot;30&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>跳转到其他页面：</strong>在指定的时间间隔后，自动将用户重定向到其他页面。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;refresh&quot;</span> <span class="attr">content</span>=<span class="string">&quot;5; URL=https://example.com/new-page.html&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>兼容模式：</strong>指定浏览器（如 Internet Explorer）使用特定的渲染模式。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>搜索引擎索引控制：</strong>指示搜索引擎是否应索引页面和跟踪链接。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;index, follow&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这些常用的 meta 标签可以帮助你控制页面的显示、搜索引擎优化和其他功能。根据页面需求，可以根据需要添加更多的 meta 标签。</li>
+</ul>
+<h3 id="defer-和-async-的区别"><a href="#defer-和-async-的区别" class="headerlink" title="defer 和 async 的区别 ?"></a>defer 和 async 的区别 ?</h3><ul>
+<li>defer 和 async 都是用于脚本加载和执行的关键字，两者的主要区别如下：<ul>
+<li>defer 脚本会在 HTML 文档解析完成后执行，而 async 脚本会在下载完毕后立即执行。</li>
+<li>defer 脚本会按照它们在文档中的顺序执行，而 async 脚本是在下载完成后尽快执行，可能会打乱它们在文档中的顺序。</li>
+<li>defer 脚本会在 DOMContentLoaded 事件之后运行，而 async 脚本则不一定。</li>
+</ul>
+</li>
+<li>因此，如果需要按顺序执行脚本并且不想阻塞 DOM 的解析，可以使用 defer。如果脚本的执行不依赖于其他脚本或 DOM，可以使用 async 加快加载速度。</li>
+</ul>
+<h3 id="CSS-属性是否区分大小写？"><a href="#CSS-属性是否区分大小写？" class="headerlink" title="CSS 属性是否区分大小写？"></a>CSS 属性是否区分大小写？</h3><ul>
+<li>CSS 属性名和属性值在大多数情况下是不区分大小写的，但也有少数例外情况，如 font-variant 和 text-decoration 等属性与其值中的某些字母是区分大小写的。建议在编写 CSS 代码时还是严格遵守大小写以避免不必要的错误。</li>
+</ul>
+<h3 id="link-与-import-的区别"><a href="#link-与-import-的区别" class="headerlink" title="link 与@import 的区别"></a>link 与@import 的区别</h3><ul>
+<li><p>link 和 @import 都可以用来引入外部资源，如 CSS 文件，但是它们之间有以下区别：</p>
+<ul>
+<li>引入方式：link 是 HTML 标签，@import 是 CSS 提供的一种方式。</li>
+<li>加载顺序和性能：link 在页面载入时同时加载，@import 在页面载入完成后加载。</li>
+<li>定义方式：link 可以在文档头部定义，也可以在文档中任何地方定义，@import 只能在样式表中定义。</li>
+<li>加载方式：link 可以同时加载多个外部样式表，而@import 必须一条一条地执行。</li>
+<li>附加功能：link 标签支持添加一些额外属性，如 media、title 等，用于指定媒体类型或提供样式表的描述。@import 不支持这些附加功能。</li>
+<li>可控性：link 支持动态插入，而@import 不支持。</li>
+</ul>
+</li>
+</ul>
+
+      <div>
+  
+    <div>
+  
+    <div style="text-align:center;color: #A4A4A4;font-size:16px;">---------- 结束咯~~ 撒花ฅ&gt;ω&lt;*ฅ花撒 ----------</div>
+  
+</div>
+
+  
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/weixin.jpg" alt="壮壮姐姐~ 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/zhifubao.jpg" alt="壮壮姐姐~ 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E9%AB%98%E9%A2%91%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 高频前端面试题</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/14/" rel="prev" title="前端面试题-JavaScript">
+                  <i class="fa fa-chevron-left"></i> 前端面试题-JavaScript
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/11/" rel="next" title="快捷键集合">
+                  快捷键集合 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/01/2020 10:00:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+    }
+setInterval("createtime()",250);
+</script>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">壮壮姐姐~</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

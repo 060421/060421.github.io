@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.17.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="开发中封装的一些实用工具">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="封装的一些实用代码工具">
+<meta property="og:url" content="http://example.com/posts/2/index.html">
+<meta property="og:site_name" content="李正浩的个人博客">
+<meta property="og:description" content="开发中封装的一些实用工具">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-02T01:04:40.000Z">
+<meta property="article:modified_time" content="2023-06-21T02:10:07.071Z">
+<meta property="article:author" content="壮壮姐姐~">
+<meta property="article:tag" content="高频前端面试题">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/posts/2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/2/","path":"posts/2/","title":"封装的一些实用代码工具"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>封装的一些实用代码工具 | 李正浩的个人博客</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?bfa9046a9727afd7b1ddf08f308c3468"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">李正浩的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">壮壮姐姐~</p>
+      <img class="custom-logo-image" src="/images/logo.png" alt="李正浩的个人博客">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E6%88%B3%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">时间戳转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%89%B9%E5%88%AB%E4%B8%87%E8%83%BD%E7%9A%84%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">一个特别万能的数组去重方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%87%E8%83%BD%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD"><span class="nav-number">3.</span> <span class="nav-text">万能的模糊搜索功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E4%BB%B6%E8%81%94%E5%8A%A8%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD"><span class="nav-number">4.</span> <span class="nav-text">多条件联动搜索功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E9%AA%8C%E8%AF%81"><span class="nav-number">5.</span> <span class="nav-text">常用正则验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96"><span class="nav-number">6.</span> <span class="nav-text">函数防抖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81"><span class="nav-number">7.</span> <span class="nav-text">函数节流</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="壮壮姐姐~"
+      src="/images/head_2.gif">
+  <p class="site-author-name" itemprop="name">壮壮姐姐~</p>
+  <div class="site-description" itemprop="description">心有所向，无问东西</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/060421" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;060421" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+            
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head_2.gif">
+      <meta itemprop="name" content="壮壮姐姐~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李正浩的个人博客">
+      <meta itemprop="description" content="心有所向，无问东西">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="封装的一些实用代码工具 | 李正浩的个人博客">
+      <meta itemprop="description" content="开发中封装的一些实用工具">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          封装的一些实用代码工具
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-02 09:04:40" itemprop="dateCreated datePublished" datetime="2021-05-02T09:04:40+08:00">2021-05-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-21 10:10:07" itemprop="dateModified" datetime="2023-06-21T10:10:07+08:00">2023-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BF%AB%E6%8D%B7%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">快捷开发</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>144</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">开发中封装的一些实用工具</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="时间戳转换"><a href="#时间戳转换" class="headerlink" title="时间戳转换"></a>时间戳转换</h1><blockquote>
+<p>把时间戳转成 <code>2023-05-17 15:27:22</code> 的格式</p>
+</blockquote>
+<ul>
+<li>js 版本</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 时间戳转换</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">msToDate</span>(<span class="params">msec</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> datetime = <span class="keyword">new</span> <span class="title class_">Date</span>(msec);</span><br><span class="line">  <span class="keyword">let</span> year = datetime.<span class="title function_">getFullYear</span>();</span><br><span class="line">  <span class="keyword">let</span> month = datetime.<span class="title function_">getMonth</span>();</span><br><span class="line">  <span class="keyword">let</span> date = datetime.<span class="title function_">getDate</span>();</span><br><span class="line">  <span class="keyword">let</span> hour = datetime.<span class="title function_">getHours</span>();</span><br><span class="line">  <span class="keyword">let</span> minute = datetime.<span class="title function_">getMinutes</span>();</span><br><span class="line">  <span class="keyword">let</span> second = datetime.<span class="title function_">getSeconds</span>();</span><br><span class="line">  <span class="keyword">let</span> result1 =</span><br><span class="line">    year + <span class="comment">// 打印出来： &quot;2023.05.17 15:24:54&quot;</span></span><br><span class="line">    <span class="string">&quot;.&quot;</span> + <span class="comment">// &#x27;.&#x27; 换成 &#x27;-&#x27; 变成 &quot;2023-05-17 15:27:22&quot;</span></span><br><span class="line">    (month + <span class="number">1</span> &gt;= <span class="number">10</span> ? month + <span class="number">1</span> : <span class="string">&quot;0&quot;</span> + (month + <span class="number">1</span>)) +</span><br><span class="line">    <span class="string">&quot;.&quot;</span> +</span><br><span class="line">    (date + <span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + date : date) +</span><br><span class="line">    <span class="string">&quot; &quot;</span> +</span><br><span class="line">    (hour + <span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + hour : hour) +</span><br><span class="line">    <span class="string">&quot;:&quot;</span> + <span class="comment">// &#x27;:&#x27; 换成 &#x27;-&#x27; 变成 &quot;2023-05-17 15-27-22&quot;</span></span><br><span class="line">    (minute + <span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + minute : minute) +</span><br><span class="line">    <span class="string">&quot;:&quot;</span> +</span><br><span class="line">    (second + <span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + second : second);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> result2 =</span><br><span class="line">    year +</span><br><span class="line">    <span class="string">&quot;.&quot;</span> +</span><br><span class="line">    (month + <span class="number">1</span> &gt;= <span class="number">10</span> ? month + <span class="number">1</span> : <span class="string">&quot;0&quot;</span> + (month + <span class="number">1</span>)) +</span><br><span class="line">    <span class="string">&quot;.&quot;</span> +</span><br><span class="line">    (date + <span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + date : date);</span><br><span class="line">  <span class="keyword">let</span> result = &#123;</span><br><span class="line">    <span class="attr">hasTime</span>: result1, <span class="comment">// 带时分秒</span></span><br><span class="line">    <span class="attr">withoutTime</span>: result2, <span class="comment">// 不带时分秒</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ts 版本</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 将指定的时间戳、日期对象或日期字符串转换成指定格式的日期和时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> datetime 时间戳、日期对象或日期字符串</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> hasTime 是否需要包含时间部分，默认为 true</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> format 日期和时间的格式字符串，默认为 &#x27;yyyy-MM-dd HH:mm:ss&#x27;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> 格式化后的日期和时间对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">msToDate</span>(<span class="params"></span></span><br><span class="line"><span class="params">  datetime: <span class="built_in">string</span> | <span class="built_in">number</span> | <span class="built_in">Date</span>,</span></span><br><span class="line"><span class="params">  hasTime = <span class="literal">true</span>,</span></span><br><span class="line"><span class="params">  format = <span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span></span></span><br><span class="line"><span class="params"></span>): &#123;</span><br><span class="line">  <span class="attr">hasTime</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">withoutTime</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125; &#123;</span><br><span class="line">  <span class="keyword">const</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(datetime);</span><br><span class="line">  <span class="keyword">const</span> year = date.<span class="title function_">getFullYear</span>();</span><br><span class="line">  <span class="keyword">const</span> month = date.<span class="title function_">getMonth</span>();</span><br><span class="line">  <span class="keyword">const</span> day = date.<span class="title function_">getDate</span>();</span><br><span class="line">  <span class="keyword">const</span> hour = date.<span class="title function_">getHours</span>();</span><br><span class="line">  <span class="keyword">const</span> minute = date.<span class="title function_">getMinutes</span>();</span><br><span class="line">  <span class="keyword">const</span> second = date.<span class="title function_">getSeconds</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 如果不需要包含时间部分，则只返回日期部分</span></span><br><span class="line">  <span class="keyword">if</span> (!hasTime) &#123;</span><br><span class="line">    <span class="keyword">const</span> withoutTime = format</span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/HH:mm:ss/g</span>, <span class="string">&quot;&quot;</span>) <span class="comment">// 去掉时间部分</span></span><br><span class="line">      .<span class="title function_">replace</span>(<span class="regexp">/[yYMmd]/g</span>, <span class="function">(<span class="params">match</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> (match) &#123;</span><br><span class="line">          <span class="keyword">case</span> <span class="string">&quot;y&quot;</span>:</span><br><span class="line">            <span class="keyword">return</span> year.<span class="title function_">toString</span>();</span><br><span class="line">          <span class="keyword">case</span> <span class="string">&quot;M&quot;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="title function_">padZero</span>(month + <span class="number">1</span>);</span><br><span class="line">          <span class="keyword">case</span> <span class="string">&quot;d&quot;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="title function_">padZero</span>(day);</span><br><span class="line">          <span class="attr">default</span>:</span><br><span class="line">            <span class="keyword">return</span> match;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">hasTime</span>: <span class="string">&quot;&quot;</span>, withoutTime &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回包含日期和时间的完整字符串</span></span><br><span class="line">  <span class="keyword">const</span> timestampStr = format</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/yyyy/g</span>, year.<span class="title function_">toString</span>())</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/MM/g</span>, <span class="title function_">padZero</span>(month + <span class="number">1</span>))</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/dd/g</span>, <span class="title function_">padZero</span>(day))</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/HH/g</span>, <span class="title function_">padZero</span>(hour))</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/mm/g</span>, <span class="title function_">padZero</span>(minute))</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/ss/g</span>, <span class="title function_">padZero</span>(second));</span><br><span class="line">  <span class="keyword">const</span> withoutTimeStr = timestampStr.<span class="title function_">replace</span>(<span class="regexp">/ \d+:\d+:\d+/g</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="attr">hasTime</span>: timestampStr, <span class="attr">withoutTime</span>: withoutTimeStr &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在数字前添加前导零，使得长度为指定值，并转成字符串格式</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> value 数字值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> length 目标字符串长度</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> 转换后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">padZero</span>(<span class="params">value: <span class="built_in">number</span>, length = <span class="number">2</span></span>): <span class="built_in">string</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> value.<span class="title function_">toString</span>().<span class="title function_">padStart</span>(length, <span class="string">&quot;0&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="一个特别万能的数组去重方法"><a href="#一个特别万能的数组去重方法" class="headerlink" title="一个特别万能的数组去重方法"></a>一个特别万能的数组去重方法</h1><blockquote>
+<p>可去去掉重复的对象也可以去掉重复的数组,Nan 和 undefined 转换出来是 null，目前还未解决</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="title class_">NaN</span>, <span class="number">1</span>, <span class="string">&quot;1&quot;</span>, <span class="title class_">NaN</span>, &#123;&#125;, &#123; <span class="attr">a</span>: &#123; <span class="attr">b</span>: <span class="number">10</span> &#125; &#125;, &#123; <span class="attr">a</span>: &#123; <span class="attr">b</span>: <span class="number">10</span> &#125; &#125;, &#123;&#125;];</span><br><span class="line">arr = arr.<span class="title function_">map</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//将原数组map出来</span></span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(item); <span class="comment">//通过JSON.stringify将数组中的各项转成字符串</span></span><br><span class="line">&#125;);</span><br><span class="line">arr = <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Set</span>(arr)); <span class="comment">//利用es6的new Set进行去重</span></span><br><span class="line">arr = arr.<span class="title function_">map</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 在map循环将各项转回来</span></span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">parse</span>(item);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">// [1,null,&#x27;1&#x27;,2,&#123;a:10&#125;,&#123;&#125;,&#123; a: &#123; b: 10 &#125; &#125;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="万能的模糊搜索功能"><a href="#万能的模糊搜索功能" class="headerlink" title="万能的模糊搜索功能"></a>万能的模糊搜索功能</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dataList全部数据、value输入框输入的内容、type要查询数据的字段名字</span></span><br><span class="line"><span class="keyword">const</span> filterOne = <span class="keyword">function</span> (<span class="params">dataList, value, type</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> s = dataList.<span class="title function_">filter</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; type.<span class="property">length</span>; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (item[type[j]] !== <span class="literal">undefined</span> || item[type[j]] != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (item[type[j]].<span class="title function_">indexOf</span>(value) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> item;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> s;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 例子：</span></span><br><span class="line"><span class="title function_">filterOne</span>(list, form.<span class="property">input</span>.<span class="property">value</span>, [<span class="string">&quot;name&quot;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h1 id="多条件联动搜索功能"><a href="#多条件联动搜索功能" class="headerlink" title="多条件联动搜索功能"></a>多条件联动搜索功能</h1><blockquote>
+<p>可以实现多个输入框&#x2F;下拉框&#x2F;时间段的联动搜索功能</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue3写法 结合模糊搜索</span></span><br><span class="line"><span class="keyword">let</span> filterFun = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> filterlist = dataList.<span class="property">value</span>; <span class="comment">// 声明一个变量接收全部数据</span></span><br><span class="line">  <span class="comment">// 条件1</span></span><br><span class="line">  <span class="keyword">if</span> (form.<span class="property">input</span>.<span class="property">value</span>) &#123;</span><br><span class="line">    <span class="comment">// 输入框中的内容↑</span></span><br><span class="line">    filterlist = <span class="title function_">filterOne</span>(list, form.<span class="property">input</span>.<span class="property">value</span>, [<span class="string">&quot;name&quot;</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 条件2</span></span><br><span class="line">  <span class="keyword">if</span> (form.<span class="property">input1</span>.<span class="property">value</span>) &#123;</span><br><span class="line">    <span class="comment">// 输入框中的内容↑</span></span><br><span class="line">    filterlist = <span class="title function_">filterOne</span>(list, form.<span class="property">input1</span>.<span class="property">value</span>, [<span class="string">&quot;name1&quot;</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 如果还有可以在加</span></span><br><span class="line">  <span class="keyword">return</span> filterlist;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="常用正则验证"><a href="#常用正则验证" class="headerlink" title="常用正则验证"></a>常用正则验证</h1><blockquote>
+<p>验证手机号，身份证号，QQ 号等等正不正确</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> checkStr = <span class="keyword">function</span> (<span class="params">str, type</span>) &#123;</span><br><span class="line">  <span class="comment">// 常用正则验证，注意type大小写</span></span><br><span class="line">  <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;phone&quot;</span>: <span class="comment">// 手机号码</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^1[3|4|5|6|7|8|9][0-9]&#123;9&#125;$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;tel&quot;</span>: <span class="comment">// 座机</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^(0\d&#123;2,3&#125;-\d&#123;7,8&#125;)(-\d&#123;1,4&#125;)?$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;card&quot;</span>: <span class="comment">// 身份证</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/(^\d&#123;15&#125;$)|(^\d&#123;18&#125;$)|(^\d&#123;17&#125;(\d|X|x)$)/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;pwd&quot;</span>: <span class="comment">// 密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^[a-zA-Z]\w&#123;5,17&#125;$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;postal&quot;</span>: <span class="comment">// 邮政编码</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/[1-9]\d&#123;5&#125;(?!\d)/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;QQ&quot;</span>: <span class="comment">// QQ号</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^[1-9][0-9]&#123;4,9&#125;$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;email&quot;</span>: <span class="comment">// 邮箱</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;money&quot;</span>: <span class="comment">// 金额(小数点2位)</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^\d*(?:\.\d&#123;0,2&#125;)?$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;URL&quot;</span>: <span class="comment">// 网址</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?/</span>.<span class="title function_">test</span>(</span><br><span class="line">        str</span><br><span class="line">      );</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;IP&quot;</span>: <span class="comment">// IP</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))/</span>.<span class="title function_">test</span>(</span><br><span class="line">        str</span><br><span class="line">      );</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;date&quot;</span>: <span class="comment">// 日期时间</span></span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="regexp">/^(\d&#123;4&#125;)\-(\d&#123;2&#125;)\-(\d&#123;2&#125;) (\d&#123;2&#125;)(?:\:\d&#123;2&#125;|:(\d&#123;2&#125;):(\d&#123;2&#125;))$/</span>.<span class="title function_">test</span>(</span><br><span class="line">          str</span><br><span class="line">        ) || <span class="regexp">/^(\d&#123;4&#125;)\-(\d&#123;2&#125;)\-(\d&#123;2&#125;)$/</span>.<span class="title function_">test</span>(str)</span><br><span class="line">      );</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;number&quot;</span>: <span class="comment">// 数字</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^[0-9]$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;english&quot;</span>: <span class="comment">// 英文</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^[a-zA-Z]+$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;chinese&quot;</span>: <span class="comment">// 中文</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^[\u4E00-\u9FA5]+$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;lower&quot;</span>: <span class="comment">// 小写</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^[a-z]+$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;upper&quot;</span>: <span class="comment">// 大写</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/^[A-Z]+$/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;HTML&quot;</span>: <span class="comment">// HTML标记</span></span><br><span class="line">      <span class="keyword">return</span> <span class="regexp">/&lt;(&quot;[^&quot;]*&quot;|&#x27;[^&#x27;]*&#x27;|[^&#x27;&quot;&gt;])*&gt;/</span>.<span class="title function_">test</span>(str);</span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> strr = <span class="number">15037757333</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">checkStr</span>(strr, <span class="string">&quot;phone&quot;</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> debounce = <span class="keyword">function</span> (<span class="params">func, wait, immediate</span>) &#123;</span><br><span class="line">  <span class="comment">//函数防抖[func 函数,wait 延迟执行毫秒数,immediate true 表立即执行,false 表非立即执行,立即执行是触发事件后函数会立即执行，然后n秒内不触发事件才能继续执行函数的效果]</span></span><br><span class="line">  <span class="keyword">let</span> timeout;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> context = <span class="variable language_">this</span>;</span><br><span class="line">    <span class="keyword">let</span> args = <span class="variable language_">arguments</span>;</span><br><span class="line">    <span class="keyword">if</span> (timeout) <span class="built_in">clearTimeout</span>(timeout);</span><br><span class="line">    <span class="keyword">if</span> (immediate) &#123;</span><br><span class="line">      <span class="keyword">var</span> callNow = !timeout;</span><br><span class="line">      timeout = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        timeout = <span class="literal">null</span>;</span><br><span class="line">      &#125;, wait);</span><br><span class="line">      <span class="keyword">if</span> (callNow) func.<span class="title function_">apply</span>(context, args);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      timeout = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        func.<span class="title function_">apply</span>(context, args);</span><br><span class="line">      &#125;, wait);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> throttle = <span class="keyword">function</span> (<span class="params">func, wait, type</span>) &#123;</span><br><span class="line">  <span class="comment">//函数节流 [func 函数 wait 延迟执行毫秒数 type 1 表时间戳版，2 表定时器版]</span></span><br><span class="line">  <span class="keyword">if</span> (type === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> previous = <span class="number">0</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type === <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> timeout;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> context = <span class="variable language_">this</span>;</span><br><span class="line">    <span class="keyword">let</span> args = <span class="variable language_">arguments</span>;</span><br><span class="line">    <span class="keyword">if</span> (type === <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">let</span> now = <span class="title class_">Date</span>.<span class="title function_">now</span>();</span><br><span class="line">      <span class="keyword">if</span> (now - previous &gt; wait) &#123;</span><br><span class="line">        func.<span class="title function_">apply</span>(context, args);</span><br><span class="line">        previous = now;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type === <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!timeout) &#123;</span><br><span class="line">        timeout = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          timeout = <span class="literal">null</span>;</span><br><span class="line">          func.<span class="title function_">apply</span>(context, args);</span><br><span class="line">        &#125;, wait);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      <div>
+  
+    <div>
+  
+    <div style="text-align:center;color: #A4A4A4;font-size:16px;">---------- 结束咯~~ 撒花ฅ&gt;ω&lt;*ฅ花撒 ----------</div>
+  
+</div>
+
+  
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/weixin.jpg" alt="壮壮姐姐~ 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/zhifubao.jpg" alt="壮壮姐姐~ 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E9%AB%98%E9%A2%91%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 高频前端面试题</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/1/" rel="prev" title="欢迎来到我的博客">
+                  <i class="fa fa-chevron-left"></i> 欢迎来到我的博客
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/3/" rel="next" title="JavaScript">
+                  JavaScript <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/01/2020 10:00:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+    }
+setInterval("createtime()",250);
+</script>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">壮壮姐姐~</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
